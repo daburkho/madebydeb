@@ -40,10 +40,12 @@
         >
           <span class="print-frame">
             <img
-              src="${work.image}"
+              src="${work.thumb}"
               alt=""
-              style="object-position: ${work.focus || "center"}"
+              width="${work.width}"
+              height="${work.height}"
               loading="lazy"
+              decoding="async"
             />
           </span>
           <span class="print-info">
@@ -62,18 +64,29 @@
         (work) => `
       <figure class="lightbox-slide">
         <img
-          src="${work.image}"
+          data-src="${work.image}"
           alt="${work.title}"
-          style="object-position: ${work.focus || "center"}"
+          width="${work.width}"
+          height="${work.height}"
           draggable="false"
+          decoding="async"
         />
       </figure>`,
       )
       .join("");
   }
 
+  function ensureSlideImage(i) {
+    const img = track.querySelectorAll("img")[i];
+    if (!img || img.getAttribute("src")) return;
+    img.src = img.dataset.src;
+  }
+
   function updateMeta() {
     const work = works[index];
+    ensureSlideImage(index);
+    ensureSlideImage((index + 1) % works.length);
+    ensureSlideImage((index - 1 + works.length) % works.length);
     titleEl.textContent = work.title;
     sizesEl.textContent = sizesLabel(work.sizes);
     inquireEl.href = inquireHref(work);
