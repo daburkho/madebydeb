@@ -15,11 +15,9 @@
       rel="stylesheet"
     />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <link rel="stylesheet" href="styles.css?v=20261103" />
+    <link rel="stylesheet" href="styles.css?v=20261104" />
   </head>
   <body>
-    <div class="page-bg" aria-hidden="true"></div>
-
     <header class="site-header">
       <div class="site-header-inner">
         <div class="brand-lockup">
@@ -30,12 +28,12 @@
           </div>
         </div>
         <nav class="site-nav" aria-label="Contact">
-          <a href="mailto:hello@madebydeb.art">Email</a>
+          <a href="mailto:hello@madebydeb.art">hello@madebydeb.art</a>
           <a
             href="https://www.instagram.com/made_by_deb/"
             target="_blank"
             rel="noopener noreferrer"
-            >Instagram</a
+            >@made_by_deb</a
           >
         </nav>
       </div>
@@ -48,16 +46,7 @@
     </section>
 
     <footer class="site-footer">
-      <p class="footer-brand">Made by Deb</p>
-      <div class="footer-links">
-        <a href="mailto:hello@madebydeb.art">hello@madebydeb.art</a>
-        <a
-          href="https://www.instagram.com/made_by_deb/"
-          target="_blank"
-          rel="noopener noreferrer"
-          >@made_by_deb</a
-        >
-      </div>
+      <p>© <span id="copyright-year">2026</span> Made by Deb</p>
     </footer>
 
     <div
@@ -91,5 +80,9 @@
 
     <script src="works.js?v=20261009"></script>
     <script src="script.js?v=20261008c"></script>
+    <script>
+      document.getElementById("copyright-year").textContent =
+        new Date().getFullYear();
+    </script>
   </body>
 </html>
